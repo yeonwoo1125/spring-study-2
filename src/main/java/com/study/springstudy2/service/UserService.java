@@ -1,6 +1,7 @@
 package com.study.springstudy2.service;
 
 import com.study.springstudy2.dto.request.UserCreateRequestDto;
+import com.study.springstudy2.dto.response.UserFindResponseDto;
 import com.study.springstudy2.entity.User;
 import com.study.springstudy2.entity.UserRepository;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserService {
 
-    private final UserRepository usersRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public Long createUser(UserCreateRequestDto dto){
@@ -21,17 +22,27 @@ public class UserService {
                 .userName(dto.getUserName())
                 .userPassword(dto.getUserPassword()).
                 build();
-        return usersRepository.save(users).getUserId();
+        return userRepository.save(users).getUserId();
     }
 
     @Transactional
     public void deleteUser(Long id){
-        usersRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     @Transactional
     public List<User> findAllUsers(){
-        List<User> userList = usersRepository.findAll();
+        List<User> userList = userRepository.findAll();
         return userList;
+    }
+
+    @Transactional
+    public UserFindResponseDto findUser(Long id){
+        User user = userRepository.findById(id).orElseThrow();
+        return UserFindResponseDto.builder()
+                .id(user.getUserId())
+                .userName(user.getUserName())
+                .userPassword(user.getUserPassword())
+                .build();
     }
 }

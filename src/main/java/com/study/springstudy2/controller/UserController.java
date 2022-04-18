@@ -1,6 +1,7 @@
 package com.study.springstudy2.controller;
 
 import com.study.springstudy2.dto.request.UserCreateRequestDto;
+import com.study.springstudy2.dto.response.UserFindResponseDto;
 import com.study.springstudy2.entity.User;
 import com.study.springstudy2.service.UserService;
 import lombok.AllArgsConstructor;
@@ -12,22 +13,26 @@ import java.util.List;
 @RequestMapping("/users")
 @AllArgsConstructor
 public class UserController {
-    private final UserService usersService;
+    private final UserService userService;
 
     @PostMapping
     public void createUser(@RequestBody UserCreateRequestDto dto){
-        Long id = usersService.createUser(dto);
+        Long id = userService.createUser(dto);
         System.out.println(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id){
-        usersService.deleteUser(id);
+        userService.deleteUser(id);
     }
 
     @GetMapping
     public List<User> findAllUsers(){
-        return usersService.findAllUsers();
+        return userService.findAllUsers();
     }
 
+    @PostMapping("/{id}")
+    public UserFindResponseDto findUser(@PathVariable Long id){
+        return userService.findUser(id);
+    }
 }
