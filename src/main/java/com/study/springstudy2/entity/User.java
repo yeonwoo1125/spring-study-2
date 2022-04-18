@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Table(name = "users_tb")
 @NoArgsConstructor
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -22,7 +22,7 @@ public class Users {
     private String userPassword;
 
     @Builder
-    public Users(String userName, String userPassword){
+    public User(String userName, String userPassword){
         this.userName=userName;
         this.userPassword=userPassword;
     }

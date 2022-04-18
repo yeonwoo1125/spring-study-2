@@ -1,6 +1,5 @@
 package com.study.springstudy2.dto.response;
 
-import com.study.springstudy2.entity.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

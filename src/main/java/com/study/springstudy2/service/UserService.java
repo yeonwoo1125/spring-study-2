@@ -1,8 +1,8 @@
 package com.study.springstudy2.service;
 
 import com.study.springstudy2.dto.request.UserCreateRequestDto;
-import com.study.springstudy2.entity.Users;
-import com.study.springstudy2.entity.UsersRepository;
+import com.study.springstudy2.entity.User;
+import com.study.springstudy2.entity.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,11 +13,11 @@ import java.util.List;
 @AllArgsConstructor
 public class UserService {
 
-    private final UsersRepository usersRepository;
+    private final UserRepository usersRepository;
 
     @Transactional
     public Long createUser(UserCreateRequestDto dto){
-        Users users = Users.builder()
+        User users = User.builder()
                 .userName(dto.getUserName())
                 .userPassword(dto.getUserPassword()).
                 build();
@@ -30,8 +30,8 @@ public class UserService {
     }
 
     @Transactional
-    public List<Users> findAllUsers(){
-        List<Users> userList = usersRepository.findAll();
+    public List<User> findAllUsers(){
+        List<User> userList = usersRepository.findAll();
         return userList;
     }
 }
