@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class UserService {
@@ -25,5 +27,11 @@ public class UserService {
     @Transactional
     public void deleteUser(Long id){
         usersRepository.deleteById(id);
+    }
+
+    @Transactional
+    public List<Users> findAllUsers(){
+        List<Users> userList = usersRepository.findAll();
+        return userList;
     }
 }

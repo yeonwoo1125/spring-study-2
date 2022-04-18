@@ -1,9 +1,12 @@
 package com.study.springstudy2.controller;
 
 import com.study.springstudy2.dto.request.UserCreateRequestDto;
+import com.study.springstudy2.entity.Users;
 import com.study.springstudy2.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -20,5 +23,10 @@ public class UsersController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id){
         usersService.deleteUser(id);
+    }
+
+    @GetMapping
+    public List<Users> findAllUsers(){
+        return usersService.findAllUsers();
     }
 }
