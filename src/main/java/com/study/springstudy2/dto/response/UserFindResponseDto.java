@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 
-public class UserFindAllResponseDto {
+public class UserFindResponseDto {
     Long id;
 
     String userName;
@@ -15,7 +15,7 @@ public class UserFindAllResponseDto {
     String userPassword;
 
     @Builder
-    public UserFindAllResponseDto(Long id, String userName, String userPassword){
+    public UserFindResponseDto(Long id, String userName, String userPassword){
         this.id = id;
         this.userName = userName;
         this.userPassword = userPassword;
