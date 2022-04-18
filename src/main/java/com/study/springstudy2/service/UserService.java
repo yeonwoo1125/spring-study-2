@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
-public class UsersService {
+public class UserService {
 
     private final UsersRepository usersRepository;
 
@@ -20,5 +20,10 @@ public class UsersService {
                 .userPassword(dto.getUserPassword()).
                 build();
         return usersRepository.save(users).getUserId();
+    }
+
+    @Transactional
+    public void deleteUser(Long id){
+        usersRepository.deleteById(id);
     }
 }
