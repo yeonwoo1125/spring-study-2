@@ -21,7 +21,7 @@ public class UserService {
     @Transactional
     public Long createUser(UserCreateRequestDto dto){
 
-        if(userRepository.existsById(dto.getUserId())){
+        if(userRepository.existsByUserId(dto.getUserId())){
             throw new ApiException(ErrorCodeEnum.USER_ALREADY_EXIST);
         }
         User users = User.builder()
@@ -29,7 +29,7 @@ public class UserService {
                 .userName(dto.getUserName())
                 .userPassword(dto.getUserPassword()).
                 build();
-        return userRepository.save(users).getUserId();
+        return userRepository.save(users).getId();
     }
 
     @Transactional
@@ -52,7 +52,7 @@ public class UserService {
             throw new ApiException(ErrorCodeEnum.USER_NOT_FOUND);
         });
         return UserFindResponseDto.builder()
-                .id(user.getUserId())
+                .userId(user.getUserId())
                 .userName(user.getUserName())
                 .userPassword(user.getUserPassword())
                 .build();

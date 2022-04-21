@@ -10,14 +10,14 @@ import lombok.Setter;
 public class UserFindResponseDto {
     Long id;
 
-    Long userId;
+    String userId;
 
     String userName;
 
     String userPassword;
 
     @Builder
-    public UserFindResponseDto(Long id, Long userId, String userName, String userPassword){
+    public UserFindResponseDto(Long id, String userId, String userName, String userPassword){
         this.id = id;
         this.userId  = userId;
         this.userName = userName;

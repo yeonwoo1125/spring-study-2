@@ -16,7 +16,7 @@ public class UserCreateRequestDto {
     String userPassword;
 
     @NotNull
-    Long userId;
+    String userId;
 
     @Builder
     public UserCreateRequestDto(String userId, String userName, String userPassword){

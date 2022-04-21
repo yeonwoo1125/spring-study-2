@@ -15,8 +15,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 20, nullable = false, unique = true, name = "user_id")
-    private Long userId;
+    @Column(length = 20, nullable = false, name = "user_id")
+    private String userId;
 
     @Column(length = 10, nullable = false, name = "user_name")
     private String userName;
@@ -25,7 +25,7 @@ public class User {
     private String userPassword;
 
     @Builder
-    public User(String userName, String userPassword, Long userId){
+    public User(String userName, String userPassword, String userId){
         this.userId=userId;
         this.userName=userName;
         this.userPassword=userPassword;
