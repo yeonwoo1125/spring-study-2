@@ -4,6 +4,7 @@ import com.study.springstudy2.dto.request.UserCreateRequestDto;
 import com.study.springstudy2.dto.response.UserFindResponseDto;
 import com.study.springstudy2.entity.User;
 import com.study.springstudy2.service.UserService;
+import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @AllArgsConstructor
+@Api(tags = {"회원 관리 API"})
 public class UserController {
     private final UserService userService;
 
