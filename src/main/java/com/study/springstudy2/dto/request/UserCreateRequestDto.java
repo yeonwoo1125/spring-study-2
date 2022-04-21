@@ -15,8 +15,12 @@ public class UserCreateRequestDto {
     @NotNull
     String userPassword;
 
+    @NotNull
+    Long userId;
+
     @Builder
-    public UserCreateRequestDto(String userName, String userPassword){
+    public UserCreateRequestDto(String userId, String userName, String userPassword){
+        this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
     }
