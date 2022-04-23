@@ -8,5 +8,3 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-mybatis:
-  type-aliases-package: com.study.springstudy2.dto
