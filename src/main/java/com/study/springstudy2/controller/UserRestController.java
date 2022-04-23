@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/users")
 @AllArgsConstructor
 @Api(tags = {"회원 관리 API"})
-public class UserController {
+public class UserRestController {
     private final UserService userService;
 
     @PostMapping
