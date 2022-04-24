@@ -20,4 +20,4 @@ script: "./gradlew clean build"
 notifications:
   email:
     recipients:
-      - << 메일 주소 >>
+      - s2021@e-mirim.hs.kr
