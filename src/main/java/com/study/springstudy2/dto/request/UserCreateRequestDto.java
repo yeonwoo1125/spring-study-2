@@ -1,12 +1,11 @@
 package com.study.springstudy2.dto.request;
 
 import com.sun.istack.NotNull;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserCreateRequestDto {
 
     @NotNull
