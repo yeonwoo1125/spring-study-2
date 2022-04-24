@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @AllArgsConstructor
@@ -20,4 +23,25 @@ public class UserController {
         return "JoinUser";
     }
 
+    @GetMapping("/users")
+    public String getUsers(Model m){
+        m.addAttribute("users", userService.findAllUsers());
+
+        return "Result";
+    }
+
+    @PostMapping("/users")
+    public String addUsers(@ModelAttribute UserCreateRequestDto dto, Model m){
+        userService.createUser(dto);
+        m.addAttribute("users",userService.findAllUsers());
+
+        return "Result";
+    }
+
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
+
+        return "redirect:/users";
+    }
 }

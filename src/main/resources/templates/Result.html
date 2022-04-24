@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title> SpringBoot : result </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h2>리스트 보기(Read)</h2>
+
+<div th:if="${not #lists.isEmpty(users)}">
+  <table class="glyphicon glyphicon-calendar">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Password</th>
+      <th>delete</th>
+    </tr>
+    <tr th:each="users : ${users}">
+      <td th:text="${users.userName}"></td>
+      <td th:text="${users.userId}"></td>
+      <td th:text="${users.userPassword}"></td>
+      <td><a href="/person" th:href="@{'users/delete/' + ${users.getId()}}">삭제</a></td>
+    </tr>
+  </table>
+  <hr/>
+</div>
+<a href="/"><button>새로 만들기</button></a>
+
+</body>
+</html>
