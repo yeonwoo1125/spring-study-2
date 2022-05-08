@@ -44,4 +44,9 @@ public class UserController {
 
         return "redirect:/users";
     }
+    @GetMapping("/deleteAll")
+    public String deleteAllUser(){
+        userService.deleteAllUsers();
+        return "redirect:/users";
+    }
 }
