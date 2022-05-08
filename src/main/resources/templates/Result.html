@@ -13,6 +13,7 @@
       <th>Id</th>
       <th>Name</th>
       <th>Password</th>
+      <th>update</th>
       <th>delete</th>
     </tr>
     <tr th:each="users : ${users}">
@@ -25,6 +26,6 @@
   <hr/>
 </div>
 <a href="/"><button>새로 만들기</button></a>
-
+<a href="/deleteAll"><button>전체 삭제</button></a>
 </body>
 </html>

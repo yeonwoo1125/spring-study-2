@@ -57,4 +57,8 @@ public class UserService {
                 .userPassword(user.getUserPassword())
                 .build();
     }
+    @Transactional
+    public void deleteAllUsers(){
+        userRepository.deleteAll();
+    }
 }
