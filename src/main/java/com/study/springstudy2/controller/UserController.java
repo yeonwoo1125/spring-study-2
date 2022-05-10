@@ -3,6 +3,7 @@ package com.study.springstudy2.controller;
 import com.study.springstudy2.dto.request.UserCreateRequestDto;
 
 import com.study.springstudy2.service.UserService;
+import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @AllArgsConstructor
+@Api(tags = {"회원 관리 웹서비스"})
 public class UserController {
 
     private final UserService userService;
